@@ -1,6 +1,11 @@
 <script>
 	import { page } from '$app/stores';
 	import logo from '$lib/images/unicef-logo.png';
+	import { language } from '../stores.js';
+
+	function setLanguage(lang) {
+		$language = lang;
+	}
 </script>
 
 <header class="d-flex justify-content-between mb-4">
@@ -12,12 +17,8 @@
 
 	<nav>
 		<ul>
-			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
-				<a href="/">English</a>
-			</li>
-			<li aria-current={$page.url.pathname === '/hi' ? 'page' : undefined}>
-				<a href="/hi">Hindi</a>
-			</li>
+			<li on:click={() => setLanguage('en')}>English</li>
+			<li on:click={() => setLanguage('hi')}>Hindi</li>
 		</ul>
 	</nav>
 
@@ -68,19 +69,7 @@
 		height: 100%;
 	}
 
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--color-theme-1);
-	}
-
-	nav a {
+	nav li {
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -92,9 +81,10 @@
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
+		cursor: pointer;
 	}
 
-	a:hover {
+	li:hover {
 		color: var(--color-theme-1);
 	}
 </style>

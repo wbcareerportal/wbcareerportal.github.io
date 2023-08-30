@@ -1,21 +1,42 @@
 <script>
-  export let language = "en";
   import { onMount } from "svelte";
-  import { occupationGroupDescriptions, groupCodeMap, selectedGroups, codeDictEn, codeDictHi, selectionChanged } from "../../stores";
+  export let fetchCareers = false;
+  import { occupationGroupDescriptions, groupCodeMap, selectedGroups, codeDictEn, codeDictHi, language } from "../../stores";
   if ($selectedGroups !== "empty" && $selectedGroups !== undefined && $selectedGroups.length === 5) {
     $selectedGroups = $selectedGroups.split(",");
   }
 
   let codeDict = $codeDictEn
-  if (language === "hi") codeDict = $codeDictHi;
+  if ($language === "hi") codeDict = $codeDictHi;
+
+  $: if ($language === "en") {
+    console.log("Language changed to English");
+    codeDict = $codeDictEn;
+    populateCareersTable()
+  } else if ($language === "hi") {
+    console.log("Language changed to Hindi");
+    codeDict = $codeDictHi;
+    populateCareersTable()
+  }
+
+  $: if (fetchCareers) {
+    populateCareersTable();
+  }
 
   let domainName = "https://careerguidance.unilearn.org.in"
   let showResults = false;
   let relevantCareerCodesOne = [];
   let relevantCareerCodesTwo = [];
   let relevantCareerCodesThree = [];
+
+  function clearCareerCodeArrays() {
+    relevantCareerCodesOne = [];
+    relevantCareerCodesTwo = [];
+    relevantCareerCodesThree = [];
+  }
   
   function populateCareersTable() {
+    clearCareerCodeArrays()
     showResults = true;
     for (let i = 0; i < $selectedGroups.length; i++) {
       let groupCode = $selectedGroups[i];
@@ -39,32 +60,26 @@
     }
   }
 
-  $: if ($selectionChanged) {
-    console.log("iran");
-    showResults = false;
-    populateCareersTable();
-    $selectionChanged = false;
-  }
-
   onMount(() => {
   });
 
 </script>
 
-<div class="col-12 col-md-6 mx-auto text-center my-4">
+<!-- <div class="col-12 col-md-6 mx-auto text-center my-4">
   <button class="btn btn-success" on:click={() => populateCareersTable()}>
-    {#if language === "hi"}
+    {#if $language === "hi"}
       पसंदीदा करियर ढूंढें!
     {:else}
       Find interesting careers!
     {/if}
   </button>
-</div>
+</div> -->
 
-{#if showResults && $selectionChanged === false}
+{#if showResults}
+{#key $selectedGroups}
 <div class={showResults ? "" : "d-none"}>
   <div class="pt-4">
-    {#if language === "hi"}
+    {#if $language === "hi"}
       <h3>बहुत खूब!</h3>
       
       <h4>आप की रुचि <mark>{$occupationGroupDescriptions[$selectedGroups[0]]["Hindi Group"]}</mark>, <mark>{$occupationGroupDescriptions[$selectedGroups[1]]["Hindi Group"]}</mark> और <mark>{$occupationGroupDescriptions[$selectedGroups[2]]["Hindi Group"]}</mark> से जुड़े करियर से है।</h4>
@@ -82,7 +97,7 @@
   <table id="careers-table" class="table table-sm table-bordered table-striped">
     <thead>
       <tr>
-        {#if language === "hi"}
+        {#if $language === "hi"}
           <th role="columnheader">वर्ग</th>
           <th role="columnheader">करियर</th>
         {:else}
@@ -95,7 +110,7 @@
         {#each relevantCareerCodesOne as code}
           <tr>
             <td>
-              {#if language === "hi"}
+              {#if $language === "hi"}
                 {$occupationGroupDescriptions[$selectedGroups[0]]["Hindi Group"]}
               {:else}
                 {$groupCodeMap[$selectedGroups[0]]["Occupational Group"]}
@@ -114,7 +129,7 @@
         {#each relevantCareerCodesTwo as code}
           <tr>
             <td>
-              {#if language === "hi"}
+              {#if $language === "hi"}
                 {$occupationGroupDescriptions[$selectedGroups[1]]["Hindi Group"]}
               {:else}
                 {$groupCodeMap[$selectedGroups[1]]["Occupational Group"]}
@@ -129,7 +144,7 @@
         {#each relevantCareerCodesThree as code}
           <tr>
             <td>
-              {#if language === "hi"}
+              {#if $language === "hi"}
                 {$occupationGroupDescriptions[$selectedGroups[2]]["Hindi Group"]}
               {:else}
                 {$groupCodeMap[$selectedGroups[2]]["Occupational Group"]}
@@ -144,4 +159,5 @@
     </tbody>
   </table>
 </div>
+{/key}
 {/if}

@@ -1,10 +1,12 @@
 <script>
-  export let language = "en";
-  import { occupationGroupDescriptions, selectedGroups, selectionChanged } from "../../stores.js";
+  import { onMount } from "svelte";
+  import { occupationGroupDescriptions, selectedGroups, language } from "../../stores.js";
+  import FilterCareers from "./FilterCareers.svelte";
+  let fetchCareers = false;
   let groups = Object.keys($occupationGroupDescriptions)
   console.log($selectedGroups);
   if ($selectedGroups === "empty") {
-    if (language === "hi") {
+    if ($language === "hi") {
       $selectedGroups = ["मेरा #1 विकल्प", "मेरा #2 विकल्प", "मेरा #3 विकल्प"];
     } else {
       $selectedGroups = ["My #1 selection", "My #2 selection", "My #3 selection"];
@@ -14,6 +16,7 @@
   }
   
   function setSelection(group, selectionNumber) {
+    fetchCareers = false;
     let tempSelection = [];
     if ($selectedGroups[selectionNumber - 1] === group) {
       $selectedGroups[selectionNumber - 1] = null;
@@ -35,12 +38,15 @@
     }
     // scroll accordion into view
     accordion.scrollIntoView();
-    $selectionChanged = true;
   }
+
+  onMount(() => {
+    console.log(fetchCareers);
+  });
 </script>
 
 <div class="pt-5">
-  {#if language === "hi"}
+  {#if $language === "hi"}
     <h3>अपने 3 सब से पसंदीदा विकल्प चुनें!</h3>
   {:else}
     <h3>Select 3 options that you find most interesting!</h3>
@@ -54,7 +60,7 @@
           {#if $occupationGroupDescriptions[$selectedGroups[0]] === undefined}
             {$selectedGroups[0]}
           {:else}
-            {#if language === "hi"}
+            {#if $language === "hi"}
               {$occupationGroupDescriptions[$selectedGroups[0]]["Hindi Description"]}
             {:else}
               {$occupationGroupDescriptions[$selectedGroups[0]]["Description"]}
@@ -69,7 +75,7 @@
               {#if $selectedGroups.indexOf(group) === -1}
                 <div class="d-grid gap-2 my-1">
                   <button class="btn btn-outline-primary btn-sm" on:click={() => setSelection(group, 1)}>
-                    {#if language === "hi"}
+                    {#if $language === "hi"}
                       {$occupationGroupDescriptions[group]["Hindi Description"]}
                     {:else}
                       {$occupationGroupDescriptions[group]["Description"]}
@@ -89,7 +95,7 @@
           {#if $occupationGroupDescriptions[$selectedGroups[1]] === undefined}
             {$selectedGroups[1]}
           {:else}
-          {#if language === "hi"}
+          {#if $language === "hi"}
             {$occupationGroupDescriptions[$selectedGroups[1]]["Hindi Description"]}
           {:else}
             {$occupationGroupDescriptions[$selectedGroups[1]]["Description"]}
@@ -104,7 +110,7 @@
               {#if $selectedGroups.indexOf(group) === -1}
                 <div class="d-grid gap-2 my-1">
                   <button class="btn btn-outline-primary btn-sm" on:click={() => setSelection(group, 2)}>
-                    {#if language === "hi"}
+                    {#if $language === "hi"}
                       {$occupationGroupDescriptions[group]["Hindi Description"]}
                     {:else}
                       {$occupationGroupDescriptions[group]["Description"]}
@@ -124,7 +130,7 @@
           {#if $occupationGroupDescriptions[$selectedGroups[2]] === undefined}
             {$selectedGroups[2]}
           {:else}
-            {#if language === "hi"}
+            {#if $language === "hi"}
               {$occupationGroupDescriptions[$selectedGroups[2]]["Hindi Description"]}
             {:else}
               {$occupationGroupDescriptions[$selectedGroups[2]]["Description"]}
@@ -139,7 +145,7 @@
               {#if $selectedGroups.indexOf(group) === -1}
                 <div class="d-grid gap-2 my-1">
                   <button class="btn btn-outline-primary btn-sm" on:click={() => setSelection(group, 3)}>
-                    {#if language === "hi"}
+                    {#if $language === "hi"}
                       {$occupationGroupDescriptions[group]["Hindi Description"]}
                     {:else}
                       {$occupationGroupDescriptions[group]["Description"]}
@@ -154,3 +160,17 @@
     </div>
   </div>
 </div>
+
+<div class="col-12 col-md-6 mx-auto text-center my-4">
+  <button class="btn btn-success" on:click={() => fetchCareers = true}>
+    {#if $language === "hi"}
+      पसंदीदा करियर ढूंढें!
+    {:else}
+      Find interesting careers!
+    {/if}
+  </button>
+</div>
+
+{#if fetchCareers}
+  <FilterCareers {fetchCareers} />
+{/if}

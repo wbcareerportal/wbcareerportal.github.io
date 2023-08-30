@@ -1,7 +1,7 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
-	import github from '$lib/images/github.svg';
+	import cc from '$lib/images/creative-commons.svg';
 </script>
 
 <div class="app">
@@ -11,9 +11,9 @@
 		<slot />
 	</main>
 
-	<footer>
-		<p>Career Path 2023</p>
-		<p>Powered by <img src={github} alt="GitHub Logo" /></p>
+	<footer class="d-flex flex-column justify-content-center align-items-center pt-4 pb-2">
+		<hr class="w-50" />
+		<p><img src={cc} alt="Creative Commons Logo" /> Developed for UNICEF</p>
 	</footer>
 </div>
 
@@ -25,16 +25,8 @@
 	}
 
 	img {
-		width: 1.5em;
-		height: 1.5em;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
+		width: 1em;
+		height: 1em;
 	}
 
 	@media (min-width: 480px) {

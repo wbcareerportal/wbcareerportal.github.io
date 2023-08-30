@@ -12,6 +12,7 @@
 // export default config;
 
 import adapter from '@sveltejs/adapter-static';
+const dev = process.argv.includes('dev');
 
 export default {
   kit: {
@@ -22,6 +23,9 @@ export default {
       precompress: false,
       strict: true,
 			trailingSlash: 'always'
-    })
+    }),
+    paths: {
+      base: dev ? '' : process.env.BASE_PATH,
+    }
   }
 };
