@@ -44,7 +44,9 @@
     }, 750);
 
     setTimeout(() => {
-      document.getElementById("riasec").scrollIntoView({ behavior: "smooth" });
+      if (totalStatements >= 10) {
+        document.getElementById("riasec").scrollIntoView({ behavior: "smooth" });
+      }
     }, 250);
   }
 
