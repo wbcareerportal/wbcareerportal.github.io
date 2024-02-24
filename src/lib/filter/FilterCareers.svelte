@@ -1,163 +1,155 @@
 <script>
-  import { onMount } from "svelte";
-  export let fetchCareers = false;
-  import { occupationGroupDescriptions, groupCodeMap, selectedGroups, codeDictEn, codeDictHi, language } from "../../stores";
-  if ($selectedGroups !== "empty" && $selectedGroups !== undefined && $selectedGroups.length === 5) {
-    $selectedGroups = $selectedGroups.split(",");
-  }
+  import { _, locale } from "svelte-i18n";
+  import { domains, selectedDomains } from "../../stores.js";
 
-  let codeDict = $codeDictEn
-  if ($language === "hi") codeDict = $codeDictHi;
-
-  $: if ($language === "en") {
-    console.log("Language changed to English");
-    codeDict = $codeDictEn;
-    populateCareersTable()
-  } else if ($language === "hi") {
-    console.log("Language changed to Hindi");
-    codeDict = $codeDictHi;
-    populateCareersTable()
-  }
-
-  $: if (fetchCareers) {
-    populateCareersTable();
-  }
-
-  let domainName = "https://careerguidance.unilearn.org.in"
   let showResults = false;
-  let relevantCareerCodesOne = [];
-  let relevantCareerCodesTwo = [];
-  let relevantCareerCodesThree = [];
+  let showSelection = true;
+  let showSpinner = false;
 
-  function clearCareerCodeArrays() {
-    relevantCareerCodesOne = [];
-    relevantCareerCodesTwo = [];
-    relevantCareerCodesThree = [];
-  }
-  
-  function populateCareersTable() {
-    clearCareerCodeArrays()
-    showResults = true;
-    for (let i = 0; i < $selectedGroups.length; i++) {
-      let groupCode = $selectedGroups[i];
-      let groupCareersKeys = Object.keys($groupCodeMap[groupCode]["Careers"]);
-      for (let j = 0; j < groupCareersKeys.length; j++) {
-        let code = groupCareersKeys[j];
-        if (i === 0) {
-          if (relevantCareerCodesOne.indexOf(code) === -1) {
-            relevantCareerCodesOne.push(code);
-          }
-        } else if (i === 1) {
-          if (relevantCareerCodesTwo.indexOf(code) === -1) {
-            relevantCareerCodesTwo.push(code);
-          }
-        } else if (i === 2) {
-          if (relevantCareerCodesThree.indexOf(code) === -1) {
-            relevantCareerCodesThree.push(code);
-          }
-        }
-      }
-    }
+  function takeToResults() {
+    showSpinner = true;
+    setTimeout(() => {
+      showResults = true;
+      showSelection = false;
+      showSpinner = false;
+    }, 750);
+
+    setTimeout(() => {
+      document.getElementById("filter").scrollIntoView({ behavior: "smooth" });
+    }, 250);
   }
 
-  onMount(() => {
-  });
+  function takeToSelection() {
+    $selectedDomains = [];
+    showResults = false;
+    showSelection = true;
+  }
 
+  const domainList = Object.keys($domains);
+  // Shuffle domainList
+  for (let i = domainList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [domainList[i], domainList[j]] = [domainList[j], domainList[i]];
+  }
+
+  const dividers = [0, 7, 14, 21]
+
+  // add the selected radio button to the $selectedDomains store
+  function addSelectedDomain(event, index) {
+    $selectedDomains[index] = event.target.id;
+    console.log($selectedDomains);
+  }
 </script>
 
-<!-- <div class="col-12 col-md-6 mx-auto text-center my-4">
-  <button class="btn btn-success" on:click={() => populateCareersTable()}>
-    {#if $language === "hi"}
-      पसंदीदा करियर ढूंढें!
+{#if showSelection}
+<section id="selection">
+  <h4 class="fw-normal">{$_('homepage_description')}</h4>
+  <h5 class="pt-3">{$_("selection_prompt")}</h5>
+  <div class="accordion accordion-flush border" id="domainAccordion">
+    {#each dividers as divider, i}
+      {#if i < 3}
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={"#flush-collapse" + i} aria-expanded="false" aria-controls="flush-collapseOne">
+              {#if $selectedDomains[i] === undefined}
+                {i+1}. {$_("description_preface")}...
+              {:else}
+                {i+1}. {$_("description_preface")} {$domains[$selectedDomains[i]][$locale + "_description"].toLowerCase()}
+              {/if}
+            </button>
+          </h2>
+          <div id={"flush-collapse" + i} class="accordion-collapse collapse" data-bs-parent="#domainAccordion">
+            <div class="accordion-body">
+              {#each domainList.slice(dividers[i], dividers[i+1]) as domain}
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadioDefault" id={domain} on:change={(e) => addSelectedDomain(e,i)}>
+                  <label class="form-check-label" for={domain}>
+                    {$domains[domain][$locale + "_description"]}
+                  </label>
+                </div>
+              {/each}
+            </div>
+          </div>
+        </div>
+      {/if}
+    {/each}
+  </div>
+  <div class="text-end">
+    <button class="btn btn-link btn-sm" on:click={() => $selectedDomains = []}>
+      {$_("clear_selection_button_text")}
+    </button>
+  </div>
+</section>
+
+<div class="col-12 col-md-6 mx-auto text-center my-4">
+  <button class="btn btn-success" on:click={() => takeToResults()} disabled={$selectedDomains.length !== 3 ? true : false}>
+    {#if showSpinner}
+      <div class="spinner-border spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>    
     {:else}
-      Find interesting careers!
+      {$_("button_text")}
     {/if}
   </button>
-</div> -->
+</div>
 
-{#if showResults}
-{#key $selectedGroups}
-<div class={showResults ? "" : "d-none"}>
+{/if}
+
+{#if showResults && $selectedDomains.length === 3}
+<section class={showResults ? "" : "d-none"} id="results">
   <div class="pt-4">
-    {#if $language === "hi"}
-      <h3>बहुत खूब!</h3>
-      
-      <h4>आप की रुचि <mark>{$occupationGroupDescriptions[$selectedGroups[0]]["Hindi Group"]}</mark>, <mark>{$occupationGroupDescriptions[$selectedGroups[1]]["Hindi Group"]}</mark> और <mark>{$occupationGroupDescriptions[$selectedGroups[2]]["Hindi Group"]}</mark> से जुड़े करियर से है।</h4>
+    <h3>{$_("compliment")}</h3>
 
-      <h6 class="my-4">नीचे आप की रुचि से जुड़े कुछ करियर दिये गये हैं:</h6>
-    {:else}
-      <h4>Great job!</h4>
-      
-      <h4>You are interested in careers in <mark>{$occupationGroupDescriptions[$selectedGroups[0]]["Occupational Group"]}</mark>, <mark>{$occupationGroupDescriptions[$selectedGroups[1]]["Occupational Group"]}</mark>, and <mark>{$occupationGroupDescriptions[$selectedGroups[2]]["Occupational Group"]}</mark>.</h4>
+    <h5>
+      {$_("selected_domains_preface")}:
+      {#if $locale === "en"}
+        <mark>{$selectedDomains[0]}</mark>, <mark>{$selectedDomains[1]}</mark>, {$_("and")} <mark>{$selectedDomains[2]}</mark>.
+      {:else}
+        <mark>{$domains[$selectedDomains[0]][$locale]}</mark>, <mark>{$domains[$selectedDomains[1]][$locale]}</mark>, {$_("and")} <mark>{$domains[$selectedDomains[2]][$locale]}</mark>।
+      {/if}
+    </h5>
 
-      <h6 class="my-4">Here are a few careers relevant to your interests:</h6>
-    {/if}
+    <p>{$_("click_domains")}</p>
   </div>
 
-  <table id="careers-table" class="table table-sm table-bordered table-striped">
-    <thead>
-      <tr>
-        {#if $language === "hi"}
-          <th role="columnheader">वर्ग</th>
-          <th role="columnheader">करियर</th>
-        {:else}
-          <th role="columnheader">Category</th>
-          <th role="columnheader">Career</th>
-        {/if}
-      </tr>
-    </thead>
-    <tbody>
-        {#each relevantCareerCodesOne as code}
-          <tr>
-            <td>
-              {#if $language === "hi"}
-                {$occupationGroupDescriptions[$selectedGroups[0]]["Hindi Group"]}
-              {:else}
-                {$groupCodeMap[$selectedGroups[0]]["Occupational Group"]}
-              {/if}
-            </td>
-            <td>
-              {#if Object.keys(codeDict).indexOf(code) > -1}
-              <a href={domainName + codeDict[code].Slug} target="_blank" rel="noreferrer noopener">
-              {codeDict[code].Occupation}</a>
-              {:else}
-              {code}
-              {/if}
-            </td>
-          </tr>
-        {/each}
-        {#each relevantCareerCodesTwo as code}
-          <tr>
-            <td>
-              {#if $language === "hi"}
-                {$occupationGroupDescriptions[$selectedGroups[1]]["Hindi Group"]}
-              {:else}
-                {$groupCodeMap[$selectedGroups[1]]["Occupational Group"]}
-              {/if}
-            </td>
-            <td>
-              <a href={domainName + codeDict[code].Slug} target="_blank" rel="noreferrer noopener">
-              {codeDict[code].Occupation}</a>
-            </td>
-          </tr>
-        {/each}
-        {#each relevantCareerCodesThree as code}
-          <tr>
-            <td>
-              {#if $language === "hi"}
-                {$occupationGroupDescriptions[$selectedGroups[2]]["Hindi Group"]}
-              {:else}
-                {$groupCodeMap[$selectedGroups[2]]["Occupational Group"]}
-              {/if}
-            </td>
-            <td>
-              <a href={domainName + codeDict[code].Slug} target="_blank" rel="noreferrer noopener">
-              {codeDict[code].Occupation}</a>
-            </td>
-          </tr>
-        {/each}
-    </tbody>
-  </table>
-</div>
-{/key}
+  <div class="row row-cols-1 row-cols-md-3">
+    {#each $selectedDomains as domain}
+      <div class="col">
+        <a href={$domains[domain][$locale+"_link"]} target="_blank" rel="noopener noreferrer">
+          <div class="card my-2 bg-body-tertiary">
+            <div class="d-flex justify-content-center">
+              <img src={"/" + $domains[domain].image} class="card-img-top p-3" alt={$domains[domain][$locale]} />
+            </div>
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                {#if $locale === "en"}
+                  {domain}
+                {:else}
+                  {$domains[domain][$locale]}
+                {/if}
+              </h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {/each}
+  </div>
+
+  <div class="text-center mt-5">
+    <button class="btn btn-primary" on:click={() => takeToSelection()}>
+      {$_("clear_selection_button_text")}
+    </button>
+  </div>
+</section>
 {/if}
+
+<style>
+  .card-img-top {
+    width: 150px;
+    object-fit: cover;
+  }
+
+  .card:hover {
+    border: 1px solid var(--color-theme-1);
+  }
+</style>

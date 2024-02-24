@@ -1,24 +1,30 @@
 <script>
-	import { page } from '$app/stores';
-	import logo from '$lib/images/unicef-logo.png';
-	import { language } from '../stores.js';
+	import { locale } from 'svelte-i18n';
 
-	function setLanguage(lang) {
-		$language = lang;
+	function setLocale(lang) {
+		locale.set(lang);
 	}
 </script>
 
-<header class="d-flex justify-content-between mb-4">
-	<div class="corner">
-		<a href="/">
-			<img src={logo} alt="UNICEF Logo" />
+<header class="container d-flex justify-content-between mb-4">
+	<div class="corner pt-2">
+		<a href="https://wbcareerportal.in/">
+			<img src="/sed-logo.png" alt="School Education Department Logo" />
+			<!-- <img src="/wb-govt-logo.png" alt="Government of West Bengal Logo" /> -->
 		</a>
 	</div>
 
 	<nav>
 		<ul>
-			<li on:click={() => setLanguage('en')}>English</li>
-			<li on:click={() => setLanguage('hi')}>Hindi</li>
+			<li aria-current={$locale === 'en' ? 'page' : undefined}>
+				<span on:click={() => setLocale('en')}>English</span>
+			</li>
+			<li aria-current={$locale === 'hi' ? 'page' : undefined}>
+				<span on:click={() => setLocale('hi')}>हिन्दी</span>
+			</li>
+			<li aria-current={$locale === 'bn' ? 'page' : undefined}>
+				<span on:click={() => setLocale('bn')}>বাংলা</span>
+			</li>
 		</ul>
 	</nav>
 
@@ -41,7 +47,7 @@
 	.corner img {
 		width: 9em;
 		height: 6em;
-		margin-left: 6em;
+		/* margin-left: 6em; */
 		object-fit: contain;
 	}
 
@@ -69,7 +75,20 @@
 		height: 100%;
 	}
 
+	li[aria-current='page']::before {
+		--size: 6px;
+		content: '';
+		width: 0;
+		height: 0;
+		position: absolute;
+		top: 0;
+		left: calc(50% - var(--size));
+		border: var(--size) solid transparent;
+		border-top: var(--size) solid var(--color-theme-1);
+	}
+
 	nav li {
+		cursor: pointer;
 		display: flex;
 		height: 100%;
 		align-items: center;
@@ -81,7 +100,6 @@
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
-		cursor: pointer;
 	}
 
 	li:hover {
