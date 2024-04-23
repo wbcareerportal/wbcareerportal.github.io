@@ -15,27 +15,27 @@
 	});
 </script>
 
-<div class="app container col-lg-8 mx-auto">
+<div class="app">
 	<Header />
 
-	<main>
+	<main class="container col-lg-8 mx-auto">
 		<slot />
-	</main>
 
-	<footer class="text-center d-flex flex-column justify-content-center align-items-center p-3">
-		<div class="col-10 mx-auto">
-			<div class="row row-cols-1 gap-2 mb-5 w-100">
-				<div class="col">
-					<a href="/">{$_("footer_home")}</a>
-				</div>
-				<div class="col">
-					<a href="/riasec">{$_("footer_riasec")}</a>
+		<footer class="text-center d-flex flex-column justify-content-center align-items-center p-3">
+			<div class="col-10 mx-auto">
+				<div class="row row-cols-1 gap-2 mb-5 w-100">
+					<div class="col">
+						<a href="/">{$_("footer_home")}</a>
+					</div>
+					<div class="col">
+						<a href="/riasec">{$_("footer_riasec")}</a>
+					</div>
 				</div>
 			</div>
-		</div>
-		<span>{$_('footer')}</span>
-		<span>Supported by <img src="/unicef-logo.png" alt="UNICEF Logo" /></span>
-	</footer>
+			<span>{$_('footer')}</span>
+			<span>Supported by <img src="/unicef-logo.png" alt="UNICEF Logo" /></span>
+		</footer>
+	</main>
 </div>
 
 <style>

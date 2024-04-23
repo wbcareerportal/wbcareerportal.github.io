@@ -70,9 +70,9 @@
   );
 </script>
 
-<div class="my-5">
-  <div class="row row-cols-1 row-cols-md-2">
-    <div class="col-md-8 d-flex justify-content-center chart bar-chart">
+<div class="py-4" id="results-chart">
+  <div class="row row-cols-1">
+    <div class="col p-4 d-flex justify-content-center chart bar-chart">
       <Bar data={barData} options={{ 
         responsive: true,
         tooltips: {enabled: false},
@@ -86,7 +86,7 @@
       }} />
     </div>
 
-    <div class="col-md-4 d-flex justify-content-center chart radar-chart">
+    <div class="col p-4 d-flex justify-content-center chart radar-chart">
       <Radar data={radarData} options={{
         responsive: true,
         tooltips: {enabled: false},
@@ -128,12 +128,12 @@
 <style>
   .chart {
     position: relative;
-    max-height:500px;
+    max-height:400px;
   }
-
+/* 
   @media screen and (min-width: 512px) {
     .chart {
       max-height: 500px;
     }
-  }
+  } */
 </style>

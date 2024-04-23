@@ -105,4 +105,10 @@
 	li:hover {
 		color: var(--color-theme-1);
 	}
+
+	@media print {
+		nav {
+			display: none !important;
+		}
+	}
 </style>

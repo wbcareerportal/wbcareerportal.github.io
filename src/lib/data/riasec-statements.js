@@ -86,7 +86,7 @@ const riasecStatements = {
   },
   "I enjoy science": {
     "code": "I",
-    "hi": "मैं विज्ञान का आनंद लेता/लेती हूं",
+    "hi": "मैं विज्ञान का आनंद लेता/लेती हूँ",
     "bn": "আমি বিজ্ঞান পছন্দ করি"
   },
   "I am quick to take on new responsibilities": {
