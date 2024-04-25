@@ -161,6 +161,8 @@
           <option value={$_("select_gender_boy")}>{ $_("select_gender_boy") }</option>
           <option value={$_("select_gender_girl")}>{ $_("select_gender_girl") }</option>
           <option value={$_("select_gender_trans")}>{ $_("select_gender_trans") }</option>
+          <option value={$_("select_gender_prefer_not")}>{ $_("select_gender_prefer_not") }</option>
+          <option value={$_("select_gender_other")}>{ $_("select_gender_other") }</option>
         </select>
       </div>
       <div class="mb-3">
@@ -352,7 +354,9 @@
     <h1 class="fs-4 text-center">{$studentName.split(" ")[0]}{$_("apostrophe")} {$_("personality_profile")}</h1>
     <h6>{$_("name")}: {$studentName}</h6>
     <h6>{$_("class")}: {$studentClass}</h6>
-    <h6>{$_("gender")}: {$studentGender}</h6>
+    {#if $studentGender !== $_("select_gender_prefer_not")}
+      <h6>{$_("gender")}: {$studentGender}</h6>
+    {/if}
     <h6>{$_("date_of_assessment")}: {todaysDate}</h6>
   </div>
 

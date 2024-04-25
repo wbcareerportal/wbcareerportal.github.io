@@ -38,6 +38,8 @@
   "select_gender_boy": "ছেলে",
   "select_gender_girl": "মেয়ে",
   "select_gender_trans": "ট্রান্সজেন্ডার",
+  "select_gender_prefer_not": "বলতে চাই না",
+  "select_gender_other": "অন্যান্য",
   "next_button_text": "পরবর্তী",
   "previous_button_text": "আগে",
   "apostrophe": "র",

@@ -38,6 +38,8 @@
   "select_gender_boy": "लड़का",
   "select_gender_girl": "लड़की",
   "select_gender_trans": "ट्रांसजेंडर",
+  "select_gender_prefer_not": "नहीं बताना चाहते",
+  "select_gender_other": "अन्य",
   "next_button_text": "आगे",
   "previous_button_text": "पीछे",
   "apostrophe": " की",

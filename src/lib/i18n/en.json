@@ -38,6 +38,8 @@
   "select_gender_boy": "Boy",
   "select_gender_girl": "Girl",
   "select_gender_trans": "Transgender",
+  "select_gender_prefer_not": "Prefer not to say",
+  "select_gender_other": "Other",
   "next_button_text": "Next",
   "previous_button_text": "Previous",
   "apostrophe": "'s",
