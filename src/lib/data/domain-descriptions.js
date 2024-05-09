@@ -10,7 +10,13 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/bfsi/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%ac%e0%a5%80-%e0%a4%8f%e0%a4%ab-%e0%a4%8f%e0%a4%b8-%e0%a4%86%e0%a4%88/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['C', 'E']
+    "riasec": ['C', 'E'],
+    "entrance_exams": [
+      {"title":"IBPS Bank Probationary Officer (PO) Exam", "link":"https://www.ibps.in/"},
+      {"title":"Actuarial Common Entrance Test", "link":"https://actuariesindia.org/acet-0"},
+      {"title":"UPSC Exam for Indian Revenue Service (IRS)", "link":"https://upsc.gov.in/examinations/exam-calendar"},
+      {"title":"Chartered Accountants Foundation/Intermediate/Final Examination", "link":"https://www.icai.org/new_category.html?c_id=410"}
+    ]
   },
   "Defence": {
     "bn": "প্রতিরক্ষা",

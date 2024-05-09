@@ -30,6 +30,9 @@
 					<div class="col">
 						<a href="/riasec">{$_("footer_riasec")}</a>
 					</div>
+					<div class="col">
+						<a href="/entrance">{$_("footer_entrance")}</a>
+					</div>
 				</div>
 			</div>
 			<span>{$_('footer')}</span>
