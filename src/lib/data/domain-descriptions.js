@@ -29,7 +29,15 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/defence/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b0%e0%a4%95%e0%a5%8d%e0%a4%b7%e0%a4%be/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['R', 'S', 'C']
+    "riasec": ['R', 'S', 'C'],
+    "entrance_exams": [
+      {"title": "B.A. (Defence & Strategic Studies) - Rani Dhanya Kumari College, Jiyagank Murshidabad (Affiliated to University of Kalyani)", "link": "https://rdkcollegeonline.org/"},
+      {"title": "B.A. (Defence & Strategic Studies) - Nahata Jogendranath Mandal Smriti Mahavidyalaya, Nahata, North 24 Parganas (Affiliated to Calcutta University)", "link": "https://njnmsmonline.org/"},
+      {"title": "B.A. (Defence & Strategic Studies) - Sushil Kar College, Champahati, South 24 Parganas (Affiliated to Calcutta University)", "link": "https://susilkarcollege.com/"},
+      {"title": "B.A Military Studies and B.Sc Military Science - Mahishadal Raj College, Garkamalpur, Mahishadal, Medinipur (Affiliated to Vidyasagar University)", "link": "https://mahishadalrajcollege.com/"},
+      {"title": "Agniveer", "link": "https://joinindianarmy.nic.in/AgnipathScheme.htm"},
+      {"title": "National Defence Academy and Naval Academy Examination", "link": "https://upsc.gov.in/examinations/forthcoming-exams"}
+    ]  
   },
   "Design": {
     "bn": "ডিজাইন",
@@ -42,7 +50,17 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/design/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%a1%e0%a4%bf%e0%a4%9c%e0%a4%bc%e0%a4%be%e0%a4%87%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['A', 'S']
+    "riasec": ['A', 'S'],
+    "entrance_exams": [
+      {"title": "National Institute of Fashion Technology (NIFT) Entrance Exam", "link": "https://exams.nta.ac.in/NIFT/"},
+      {"title": "NID Design Aptitude Test (NID DAT)", "link": "https://admissions.nid.edu/NIDA2024/Default.aspx"},
+      {"title": "Common Entrance Examination for Design (CEED)", "link": "https://www.ceed.iitb.ac.in/2024/"},
+      {"title": "Footwear Design & Development Institute All India Selection Test 2024 (FDDI AIST)", "link": "https://fddiindia.com/admission-process"},
+      {"title": "All India Entrance Examination for Design (AIEED)", "link": "https://www.aieed.com/"},
+      {"title": "Indian Institute of Crafts and Design Entrance Test (IICD Entrance Test)", "link": "https://www.iicd.ac.in/admission-guidelines/"},
+      {"title": "Symbiosis Entrance Exam for Design (SEED)", "link": "https://www.sid.edu.in/index.php/news/2-uncategorised/18-seed"},
+      {"title": "Undergraduate Common Entrance Exam for Design", "link": "https://www.uceed.iitb.ac.in/2024/"}
+    ]  
   },
   "Education": {
     "bn": "শিক্ষা",
@@ -55,7 +73,16 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/education/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b6%e0%a4%bf%e0%a4%95%e0%a5%8d%e0%a4%b7%e0%a4%be/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['S', 'I', 'C']
+    "riasec": ['S', 'I', 'C'],
+    "entrance_exams": [
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"},
+      {"title": "Jamia Milia Islamia Delhi", "link": "https://jmi.ac.in/Index"},
+      {"title": "All India Early Childhood Education and Care", "link": "https://aiecce.in/"},
+      {"title": "CECED, Ambedkar University", "link": "https://aud.delhi.gov.in/centre-early-childhood-education-and-development-ceced"},
+      {"title": "Jadavpur University", "link": "https://jadavpuruniversity.in/"},
+      {"title": "Lady Irwin College", "link": "https://ladyirwin.edu.in/"},
+      {"title": "National Institute of Early Childcare and Education", "link": "https://www.niecce.com/about"}
+    ]  
   },
   "Engineering": {
     "bn": "ইঞ্জিনিয়ারিং",
@@ -68,7 +95,20 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/engineering/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%87%e0%a4%82%e0%a4%9c%e0%a5%80%e0%a4%a8%e0%a4%bf%e0%a4%af%e0%a4%b0%e0%a4%bf%e0%a4%82%e0%a4%97/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['R', 'I', 'A']
+    "riasec": ['R', 'I', 'A'],
+    "entrance_exams": [
+      {"title": "Joint Entrance Examination (JEE)", "link": "https://jeemain.nta.ac.in/"},
+      {"title": "West Bengal Joint Entrance Examination (WBJEE)", "link": "https://wbjeeb.in/"},
+      {"title": "IISER Aptitude Test (IAT)", "link":"https://iiseradmission.in/examination/iat.html"},
+      {"title": "Odisha Joint Entrance Examination (OJEE)", "link": "https://ojee.nic.in/"},
+      {"title": "Banaras Hindu University Undergraduate Entrance Test (BHU UET)", "link": "https://www.bhuonline.in/"},
+      {"title": "Panjab University Combined Entrance Test (PU CET)", "link": "https://www.cetug.puchd.ac.in/"},
+      {"title": "SRM University Entrance Exam", "link": "https://admissions.srmap.edu.in/lp/srmjeee/"},
+      {"title": "Vellore Institute of Technology (VIT) Entrance Exam", "link": "https://viteee.vit.ac.in/"},
+      {"title": "BITS Pilani Admission Test (BITSAT)", "link": "https://www.bitsadmission.com/bitsatmain.aspx"},
+      {"title": "Manipal Entrance Test (MET)", "link": "https://www.manipal.edu/mu/admission/indian-students/online-entrance-exam-overview.html"},
+      {"title": "Guru Gobind Singh Indraprastha University (GGSIPU) (Delhi) CET Exam", "link": "http://www.ipu.ac.in/"}
+    ]
   },
   "Fine Arts": {
     "bn": "ফাইন আর্টস",
@@ -81,7 +121,10 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/fine-arts/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b2%e0%a4%b2%e0%a4%bf%e0%a4%a4-%e0%a4%95%e0%a4%b2%e0%a4%be/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['A', 'S']
+    "riasec": ['A', 'S'],
+    "entrance_exams": [
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"}
+    ]
   },
   "Fisheries": {
     "bn": "ফিশারি",
@@ -94,7 +137,14 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/fisheries/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%ae%e0%a4%9b%e0%a4%b2%e0%a5%80-%e0%a4%aa%e0%a4%be%e0%a4%b2%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['R', 'E']
+    "riasec": ['R', 'E'],
+    "entrance_exams": [
+      {"title": "Joint Entrance Examination (JEE)", "link":"https://jeemain.nta.ac.in/"},
+      {"title":"West Bengal Joint Entrance Examination", "link": "https://wbjeeb.in/"},
+      {"title": "National Eligibility cum Entrance Test (NEET)", "link":"https://neet.nta.nic.in/"},
+      {"title": "West Bengal JELET", "link": "https://wbjeeb.nic.in/jelet/"},
+      {"title":"Central Institute of Fisheries Nautical and Engineering Training Common Entrance Test", "link": "https://cifnet.gov.in/"}
+    ]
   },
   "General": {
     "bn": "জেনারেল",
@@ -107,7 +157,11 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/general/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b8%e0%a4%be%e0%a4%ae%e0%a4%be%e0%a4%a8%e0%a5%8d%e0%a4%af/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['R', 'I', 'A', 'S', 'E', 'C']
+    "riasec": ['R', 'I', 'A', 'S', 'E', 'C'],
+    "entrance_exams": [
+      {"title": "West Bengal Joint Entrance Examination", "link": "https://wbjeeb.in/"},
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"}
+    ]
   },
   "Government": {
     "bn": "সরকারি",
@@ -146,7 +200,17 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/hospitality-tourism/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%86%e0%a4%a4%e0%a4%bf%e0%a4%a5%e0%a5%8d%e0%a4%af-%e0%a4%94%e0%a4%b0-%e0%a4%aa%e0%a4%b0%e0%a5%8d%e0%a4%af%e0%a4%9f%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['S', 'E']
+    "riasec": ['S', 'E'],
+    "entrance_exams": [
+      {"title": "National Council for Hotel Management and Catering Technology (NCHMCT) Joint Entrance Exam", "link": "https://exams.nta.ac.in/NCHM/"},
+      {"title": "Panjab University Tourism & Hospitality Aptitude Test (PUTHAT)", "link": "https://puthat.puchd.ac.in/"},
+      {"title": "Jamia Millia Islamia Entrance Exam", "link": "https://www.collegedekho.com/exam/jmiee"},
+      {"title": "Guru Gobind Singh Indraprastha University (GGSIPU) (Delhi) Common Entrance Test", "link": "http://www.ipu.ac.in/"},
+      {"title": "All India Management Association (AIMA) Undergraduate Aptitude Test", "link": "https://www.aima.in/content/testing-and-assessment/ugat/information-to-candidates-for-ugat"},
+      {"title": "Christ University Bangalore Entrance Test", "link": "https://christuniversity.in/entrance-test-details"},
+      {"title": "Maharashtra Hotel Management CET", "link": "https://cetcell.mahacet.org/"},
+      {"title": "Lovely Professional University National Entrance and Scholarship Test (LPUNEST)", "link": "https://nest.lpu.in/"}
+    ]    
   },
   "IT": {
     "bn": "আই.টি.",
@@ -159,7 +223,19 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/it/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b8%e0%a5%81%e0%a4%9a%e0%a4%a8%e0%a4%be-%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a5%8c%e0%a4%a6%e0%a5%8d%e0%a4%af%e0%a5%8b%e0%a4%97%e0%a4%bf%e0%a4%95%e0%a5%80/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['C', 'I', 'A']
+    "riasec": ['C', 'I', 'A'],
+    "entrance_exams": [
+      {"title": "Joint Entrance Examination (JEE)", "link": "https://jeemain.nta.ac.in/"},
+      {"title": "West Bengal Joint Entrance Examination (WBJEE)", "link": "https://wbjeeb.in/"},
+      {"title": "Odisha Joint Entrance Examination (OJEE)", "link": "https://ojee.nic.in/"},
+      {"title": "Banaras Hindu University Undergraduate Entrance Test (BHU UET)", "link": "https://www.bhuonline.in/"},
+      {"title": "Panjab University Combined Entrance Test (PU CET)", "link": "https://www.cetug.puchd.ac.in/"},
+      {"title": "SRM University Entrance Exam", "link": "https://admissions.srmap.edu.in/lp/srmjeee/"},
+      {"title": "Vellore Institute of Technology (VIT) Entrance Exam", "link": "https://viteee.vit.ac.in/"},
+      {"title": "BITS Pilani Admission Test (BITSAT)", "link": "https://www.bitsadmission.com/bitsatmain.aspx"},
+      {"title": "Manipal Entrance Test (MET)", "link": "https://www.manipal.edu/mu/admission/indian-students/online-entrance-exam-overview.html"},
+      {"title": "Guru Gobind Singh Indraprastha University (GGSIPU) (Delhi) CET Exam", "link": "http://www.ipu.ac.in/"}
+    ]
   },
   "Language": {
     "bn": "ভাষা",
@@ -172,7 +248,10 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/language/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%ad%e0%a4%be%e0%a4%b7%e0%a4%be/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['A', 'S']
+    "riasec": ['A', 'S'],
+    "entrance_exams": [
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"}
+    ]
   },
   "Legal": {
     "bn": "আইনী",
@@ -185,7 +264,11 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/legal/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%95%e0%a4%be%e0%a4%a8%e0%a5%82%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['S', 'C', 'E']
+    "riasec": ['S', 'C', 'E'],
+    "entrance_exams": [
+      {"title": "Common Law Admission Test (CLAT)", "link": "https://www.clatconsortiumofnlu.ac.in"},
+      {"title": "Calcutta University 5 year B.A LLB Entrance Exam", "link": "http://www.caluniv.ac.in"}
+    ]  
   },
   "Logistics": {
     "bn": "লজিস্টিকস",
@@ -198,7 +281,12 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/logistics/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b8%e0%a4%82%e0%a4%ad%e0%a4%be%e0%a4%b0-%e0%a4%a4%e0%a4%82%e0%a4%a4%e0%a5%8d%e0%a4%b0/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['E', 'C', 'R']
+    "riasec": ['E', 'C', 'R'],
+    "entrance_exams": [
+      {"title": "Common Admission Test (CAT) for MBA", "link": "https://iimcat.ac.in/per/g01/pub/756/ASM/WebPortal/1/index.html"},
+      {"title": "Management Aptitude Test (MAT) for Private MBA colleges", "link": "https://mat.aima.in/"},
+      {"title": "West Bengal Joint Entrance Examination", "link": "https://wbjeeb.in/"}
+    ]  
   },
   "Management": {
     "bn": "ম্যানেজমেন্ট",
@@ -211,7 +299,16 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/management/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%ac%e0%a4%82%e0%a4%a7%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['E', 'S', 'R', 'C']
+    "riasec": ['E', 'S', 'R', 'C'],
+    "entrance_exams": [
+      {"title": "Common Admission Test (CAT)", "link": "https://iimcat.ac.in/per/g01/pub/756/ASM/WebPortal/1/index.html"},
+      {"title": "Management Aptitude Test (MAT)", "link": "https://mat.aima.in/"},
+      {"title": "Common Management Admission Test (CMAT)", "link": "https://exams.nta.ac.in/CMAT/"},
+      {"title": "IBS Aptitude Test (IBSAT)", "link": "https://ibsindia.org/admissions/"},
+      {"title": "NMIMS Management Aptitude Test (NMAT)", "link": "https://nmat.nmims.edu/"},
+      {"title": "Symbiosis National Aptitude Test (SNAP)", "link": "https://www.snaptest.org/"},
+      {"title": "Xavier Aptitude Test (XAT)", "link": "https://www.xatonline.in/"}
+    ]  
   },
   "Media": {
     "bn": "গণমাধ্যম (মিডিয়া)",
@@ -224,7 +321,19 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/media/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%ae%e0%a5%80%e0%a4%a1%e0%a4%bf%e0%a4%af%e0%a4%be/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['A', 'S', 'C']
+    "riasec": ['A', 'S', 'C'],
+    "entrance_exams": [
+      {"title": "FTII Pune Joint Entrance Test", "link": "https://www.ftii.ac.in/p/admission-process"},
+      {"title": "Global Media Common Entrance Test (GMCET)", "link": "https://gmcet.org/"},
+      {"title": "Manipal Entrance Test (MET)", "link": "https://www.manipal.edu/mu/admission/indian-students/online-entrance-exam-overview.html"},
+      {"title": "Asian College of Journalism Entrance Exam", "link": "https://www.asianmedia.org/"},
+      {"title": "St. Xavier's College Entrance Test", "link": "https://www.careers360.com/exams/st-xaviers-college-entrance-test"},
+      {"title": "Indian Institute of Mass Communication (IIMC) Delhi Entrance Exam", "link": "https://iimc.admissions.nic.in/procedure/"},
+      {"title": "Department of Communication and Journalism, Mumbai University Entrance Exam", "link": "https://dcjmumbai.mu.ac.in/"},
+      {"title": "Guru Gobind Singh Indraprastha University (GGSIPU) (Delhi) CET Exam", "link": "http://www.ipu.ac.in/"},
+      {"title": "Asian Academy of Film and Television (AAFT) (NOIDA)", "link": "https://aaft.com/"},
+      {"title": "Whistling Wood International Test", "link": "https://www.whistlingwoods.net/"}
+    ]  
   },
   "Science": {
     "bn": "বিজ্ঞান",
@@ -237,7 +346,12 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/science/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b5%e0%a4%bf%e0%a4%9c%e0%a5%8d%e0%a4%9e%e0%a4%be%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['R', 'I']
+    "riasec": ['R', 'I'],
+    "entrance_exams": [
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"},
+      {"title": "West Bengal Joint Entrance Examination", "link": "https://wbjeeb.in/"},
+      {"title": "IISER Aptitude Test (IAT)", "link":"https://iiseradmission.in/examination/iat.html"}
+    ]
   },
   "Social Studies": {
     "bn": "সমাজবিজ্ঞান",
@@ -250,7 +364,11 @@ const domainDescriptions = {
     "en_link": "https://wbcareerportal.in/domain/social-studies/",
     "hi_link": "https://wbcareerportal.in/hi/domain/%e0%a4%b8%e0%a4%be%e0%a4%ae%e0%a4%be%e0%a4%9c%e0%a4%bf%e0%a4%95-%e0%a4%85%e0%a4%a7%e0%a5%8d%e0%a4%af%e0%a4%af%e0%a4%a8/",
     "bn_link": "https://wbcareerportal.in/bn/careers/",
-    "riasec": ['S', 'I']
+    "riasec": ['S', 'I'],
+    "entrance_exams": [
+      {"title": "Common University Entrance Test CUET (UG)", "link": "https://exams.nta.ac.in/CUET-UG/"},
+      {"title": "West Bengal Joint Entrance Examination", "link": "https://wbjeeb.in/"}
+    ]
   },
   "Sports": {
     "bn": "ক্রীড়া",

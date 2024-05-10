@@ -158,23 +158,23 @@
       <div class="mb-3">
         <label for="gender" class="form-label"><strong>{$_("gender")}</strong></label>
         <select id="gender" class="form-select" aria-label="Select gender" bind:value={$studentGender} required>
-          <option value={$_("select_gender_boy")}>{ $_("select_gender_boy") }</option>
-          <option value={$_("select_gender_girl")}>{ $_("select_gender_girl") }</option>
-          <option value={$_("select_gender_trans")}>{ $_("select_gender_trans") }</option>
-          <option value={$_("select_gender_prefer_not")}>{ $_("select_gender_prefer_not") }</option>
-          <option value={$_("select_gender_other")}>{ $_("select_gender_other") }</option>
+          <option value={$_("select_gender_boy")} data-goatcounter-click="gender-select" data-goatcounter-title="Boy">{ $_("select_gender_boy") }</option>
+          <option value={$_("select_gender_girl")} data-goatcounter-click="gender-select" data-goatcounter-title="Girl">{ $_("select_gender_girl") }</option>
+          <option value={$_("select_gender_trans")} data-goatcounter-click="gender-select" data-goatcounter-title="Transgender">{ $_("select_gender_trans") }</option>
+          <option value={$_("select_gender_prefer_not")} data-goatcounter-click="gender-select" data-goatcounter-title="Prefer Not">{ $_("select_gender_prefer_not") }</option>
+          <option value={$_("select_gender_other")} data-goatcounter-click="gender-select" data-goatcounter-title="Other">{ $_("select_gender_other") }</option>
         </select>
       </div>
       <div class="mb-3">
         <label for="school-class" class="form-label"><strong>{$_("class")}</strong></label>
         <select id="school-class" class="form-select" aria-label="Select class" bind:value={$studentClass} required>
-          <option value="VI">VI</option>
-          <option value="VII">VII</option>
-          <option value="VIII">VIII</option>
-          <option value="IX">IX</option>
-          <option value="X">X</option>
-          <option value="XI">XI</option>
-          <option value="XII">XII</option>
+          <option value="VI" data-goatcounter-click="class-select" data-goatcounter-title="VI">VI</option>
+          <option value="VII" data-goatcounter-click="class-select" data-goatcounter-title="VII">VII</option>
+          <option value="VIII" data-goatcounter-click="class-select" data-goatcounter-title="VIII">VIII</option>
+          <option value="IX" data-goatcounter-click="class-select" data-goatcounter-title="IX">IX</option>
+          <option value="X" data-goatcounter-click="class-select" data-goatcounter-title="X">X</option>
+          <option value="XI" data-goatcounter-click="class-select" data-goatcounter-title="XI">XI</option>
+          <option value="XII" data-goatcounter-click="class-select" data-goatcounter-title="XII">XII</option>
         </select>
       </div>
     </div>
