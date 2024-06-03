@@ -5,10 +5,10 @@
   import {studentGender, studentClass } from "../../../stores";
 
   onMount(() => {
-    console.log(studentGender, studentClass);
+    console.log($studentGender, $studentClass);
     window.goatcounter.count({
         path:  'riasec-test',
-        title: {studentGender} + '-' + {studentClass},
+        title: {$studentGender} + '-' + {$studentClass},
         event: true,
     })
   });
