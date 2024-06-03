@@ -1,6 +1,17 @@
 <script>
   import { _ } from 'svelte-i18n';
+  import { onMount } from 'svelte';
   import Riasec from '$lib/filter/RIASEC.svelte';
+  import {studentGender, studentClass } from "../../../stores";
+
+  onMount(() => {
+    console.log(studentGender, studentClass);
+    window.goatcounter.count({
+        path:  'riasec-test',
+        title: {studentGender} + '-' + {studentClass},
+        event: true,
+    })
+  });
 </script>
 
 <svelte:head>
