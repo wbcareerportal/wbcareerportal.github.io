@@ -5,9 +5,10 @@
   import {studentGender, studentClass } from "../../../stores";
 
   onMount(() => {
-    console.log($studentGender, $studentClass);
+    const gc_path = '/riasec/test-' + $studentGender + '-' + $studentClass;
+    console.log(gc_path);
     window.goatcounter.count({
-        path:  '/riasec/test-' + {$studentGender} + '-' + {$studentClass},
+        path: gc_path,
     })
 
     // fetch('http://wbcareerportal.goatcounter.com/api/v0/count', {
