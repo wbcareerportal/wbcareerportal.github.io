@@ -7,10 +7,26 @@
   onMount(() => {
     console.log($studentGender, $studentClass);
     window.goatcounter.count({
-        path:  'riasec-test',
+        path:  '/riasec/test-' + {$studentGender} + '-' + {$studentClass},
         title: {$studentGender} + '-' + {$studentClass},
         event: true,
     })
+
+    fetch('http://wbcareerportal.goatcounter.com/api/v0/count', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer 7yj4tgzqh3z3dtvpjfq9rifs2ndcjmxugu64b994b2wy002l'
+      },
+      body: JSON.stringify({
+        'no_sessions': true,
+        'hits': [
+          {
+            'path': '/riasec/test-' + {$studentGender} + '-' + {$studentClass},
+          },
+        ]
+      })
+    });
   });
 </script>
 
